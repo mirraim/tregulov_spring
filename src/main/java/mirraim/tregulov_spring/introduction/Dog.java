@@ -2,6 +2,9 @@ package mirraim.tregulov_spring.introduction;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class Dog implements Pet {
 
@@ -20,6 +23,7 @@ public class Dog implements Pet {
      * Параметров в методах init и destroy быть не должно
      * init-метод вызывается для каждого созданного бина
      */
+    @PostConstruct
     public void init() {
         System.out.println("Class Dog: init method");
     }
@@ -27,6 +31,7 @@ public class Dog implements Pet {
     /**
      * destroy-метод вызывается только если scope=singleton
      */
+    @PreDestroy
     public void destroy() {
         System.out.println("Class Dog: destroy method");
     }

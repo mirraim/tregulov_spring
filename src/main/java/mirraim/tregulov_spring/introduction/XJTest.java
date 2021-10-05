@@ -11,6 +11,8 @@ public class XJTest {
         person.callYourPet();
         System.out.println(person.getSurname());
         System.out.println(person.getAge());
+        Dog dog = context.getBean("dog", Dog.class);
+        dog.say();
         context.close();
     }
 }
