@@ -1,30 +1,34 @@
 package mirraim.tregulov_spring.introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
-    @Autowired
+//    @Autowired
+//    @Qualifier("dog")
     private Pet pet;
     private String surname;
     private int age;
 
-//    @Autowired
-//    public Person(Pet pet) {
-//        System.out.println("Person bean is created");
-//        this.pet = pet;
-//    }
-
-    public Person() {
+    @Autowired
+    public Person(@Qualifier("catBean") Pet pet) {
         System.out.println("Person bean is created");
+        this.pet = pet;
     }
+
+//    public Person() {
+//        System.out.println("Person bean is created");
+//    }
 
     /**
      * автоматически формируемый бин будет иметь
      * name = название метода с маленькой буквы, отбросив set, т.е. "pet"
      * @param pet pet
      */
+//    @Autowired
+//    @Qualifier("catBean")
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;
