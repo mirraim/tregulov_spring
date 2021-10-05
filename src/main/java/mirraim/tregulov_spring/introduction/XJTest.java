@@ -7,10 +7,8 @@ public class XJTest {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
           "appJContext.xml"
         );
-        Cat cat = context.getBean("catBean", Cat.class);
-        cat.say();
-        Dog dog = context.getBean("dog", Dog.class);
-        dog.say();
+        Person person = context.getBean("personBean", Person.class);
+        person.callYourPet();
         context.close();
     }
 }
