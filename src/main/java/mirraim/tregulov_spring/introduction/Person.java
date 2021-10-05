@@ -11,10 +11,10 @@ public class Person {
 //    @Qualifier("dog")
     private Pet pet;
     //@Value("Mirraim")
-    @Value("${person.surname}")
+    //@Value("${person.surname}")
     private String surname;
     //@Value("32")
-    @Value("${person.age}")
+    //@Value("${person.age}")
     private int age;
 
     @Autowired
