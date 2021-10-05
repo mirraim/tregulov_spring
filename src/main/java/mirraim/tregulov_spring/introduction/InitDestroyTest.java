@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class InitDestroyTest {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-          "appContext.xml"
+                "appContext.xml"
 
         );
         Dog dog = context.getBean("myPet", Dog.class);
