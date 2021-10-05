@@ -9,20 +9,22 @@ public class Person {
     private String surname;
     private int age;
 
-    @Autowired
-    public Person(Pet pet) {
-        System.out.println("Person bean is created");
-        this.pet = pet;
-    }
+//    @Autowired
+//    public Person(Pet pet) {
+//        System.out.println("Person bean is created");
+//        this.pet = pet;
+//    }
 
-    //public Person() {
-    //}
+    public Person() {
+        System.out.println("Person bean is created");
+    }
 
     /**
      * автоматически формируемый бин будет иметь
      * name = название метода с маленькой буквы, отбросив set, т.е. "pet"
      * @param pet pet
      */
+    @Autowired
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;
