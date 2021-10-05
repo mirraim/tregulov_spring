@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
+    @Autowired
     private Pet pet;
     private String surname;
     private int age;
@@ -24,7 +25,6 @@ public class Person {
      * name = название метода с маленькой буквы, отбросив set, т.е. "pet"
      * @param pet pet
      */
-    @Autowired
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;
