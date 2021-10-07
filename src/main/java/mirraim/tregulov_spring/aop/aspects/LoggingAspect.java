@@ -8,8 +8,13 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public void getBook())") // pointcut
+    @Before("execution(public void get*(mirraim.tregulov_spring.aop.Book))") // pointcut
     public void beforeGetBookAdvice() {
         System.out.println("beforeGetBookAdvice: попытка получить книгу");
+    }
+
+    @Before("execution(* returnBook(..))") // pointcut
+    public void beforeReturnBookAdvice() {
+        System.out.println("beforeReturnBookAdvice: попытка вернуть книгу");
     }
 }
