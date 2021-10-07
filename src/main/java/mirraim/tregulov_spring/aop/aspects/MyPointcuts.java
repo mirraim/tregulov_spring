@@ -6,6 +6,6 @@ public class MyPointcuts {
     @Pointcut("execution(* mirraim.tregulov_spring.aop.Library.get*())")
     public void allGetMethods() {}
 
-    @Pointcut("execution(* add*(..))")
+    @Pointcut("execution(* mirraim.tregulov_spring.aop.Library.add*(..))")
     public void allAddMethods() {}
 }
