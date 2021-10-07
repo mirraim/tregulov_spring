@@ -13,15 +13,23 @@ import java.util.List;
 @Aspect
 public class UniversityLoggingAspect {
 
+    /**
+     * Выполняется до целевого метода
+     */
     @Before("execution(* getStudents())")
     public void beforeGetStudentsLoggingAdvice() {
         System.out.println("beforeGetStudentsLoggingAdvice: " +
                 "логгируем получение списка студентов перед методом getStudents");
     }
 
+    /**
+     * Выполняестя после успешно завершившего работу метода
+     * Название переменной в параметрах метода должно совпадат со значением returning
+     * @param students Также можно использовать Join Point
+     */
     @AfterReturning(pointcut = "execution(* getStudents())",
-                    returning = "students")                 // название переменной в параметрах метода должно совпадат со значением returning
-    public void afterReturningGetStudentsLoggingAdvice(List<Student> students) { //Также можно использовать Join Point
+                    returning = "students")
+    public void afterReturningGetStudentsLoggingAdvice(List<Student> students) {
         for (Student student : students) {
             String fullName = "Mr. " + student.getFullName();
             student.setFullName(fullName);
@@ -33,9 +41,14 @@ public class UniversityLoggingAspect {
                 "логгируем получение списка студентов после метода getStudents");
     }
 
+    /**
+     * Исполняется после выброса исключения в целевом методе.
+     * название переменной в параметрах метода должно совпадат со значением throwing
+     * @param ex Также можно использовать Join Point в качестве параметра
+     */
     @AfterThrowing(pointcut = "execution(* getStudents())",
-                    throwing = "ex")  // название переменной в параметрах метода должно совпадат со значением throwing
-    public void afterThrowingGetStudentsLoggingAdvice(Throwable ex) { //Также можно использовать Join Point в качестве параметра
+                    throwing = "ex")
+    public void afterThrowingGetStudentsLoggingAdvice(Throwable ex) {
         System.out.println("afterThrowingGetStudentsLoggingAdvice: " +
                 "логгируем исключение во время работы метода getStudents" + ex);
     }
