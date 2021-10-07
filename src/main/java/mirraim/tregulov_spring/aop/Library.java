@@ -6,14 +6,26 @@ import org.springframework.stereotype.Component;
 public class Library {
 
     public void getBook() {
-        System.out.println("Берем книгу ");
+        System.out.println("Берем книгу");
     }
 
     public void returnBook() {
         System.out.println("Возвращаем книгу");
     }
 
-    public void getMagazin() {
-        System.out.println("Берем журнал номер");
+    public void getMagazine() {
+        System.out.println("Берем журнал");
+    }
+
+    public void returnMagazine() {
+        System.out.println("Возвращаем журнал");
+    }
+
+    public void addBook() {
+        System.out.println("Добавляем новую книгу");
+    }
+
+    public void addMagazine() {
+        System.out.println("Добавляем новый журнал");
     }
 }
