@@ -9,10 +9,7 @@ public class AOPTest {
         );
         Library library = context.getBean("libBean", Library.class);
         library.getBook();
-        library.returnBook();
         library.getMagazine();
-        library.addBook();
-        library.returnMagazine();
         context.close();
     }
 }
