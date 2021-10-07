@@ -2,6 +2,7 @@ package mirraim.tregulov_spring.aop.aspects;
 
 import mirraim.tregulov_spring.aop.Student;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,13 @@ public class UniversityLoggingAspect {
         }
 
         System.out.println("afterReturningGetStudentsLoggingAdvice: " +
-                "логгируем получение списка студентов посл метода getStudents");
+                "логгируем получение списка студентов после метода getStudents");
+    }
+
+    @AfterThrowing(pointcut = "execution(* getStudents())",
+                    throwing = "ex")  // название переменной в параметрах метода должно совпадат со значением throwing
+    public void afterThrowingGetStudentsLoggingAdvice(Throwable ex) { //Также можно использовать Join Point в качестве параметра
+        System.out.println("afterThrowingGetStudentsLoggingAdvice: " +
+                "логгируем исключение во время работы метода getStudents" + ex);
     }
 }
