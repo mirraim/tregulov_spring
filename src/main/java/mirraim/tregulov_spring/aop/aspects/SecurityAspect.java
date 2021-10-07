@@ -13,4 +13,9 @@ public class SecurityAspect {
     public void beforeGetSecurityAdvice() {
         System.out.println("beforeGetSecurityAdvice - проверка прав на получение книги/журнала");
     }
+
+    @Before("mirraim.tregulov_spring.aop.aspects.MyPointcuts.allAddMethods()")
+    public void beforeAddSecurityAdvice() {
+        System.out.println("beforeAddSecurityAdvice - проверка прав на добавление книги/журнала");
+    }
 }

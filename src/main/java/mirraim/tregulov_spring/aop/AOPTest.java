@@ -8,8 +8,10 @@ public class AOPTest {
           MyConfig.class
         );
         Library library = context.getBean("libBean", Library.class);
+        Book book = context.getBean("book", Book.class);
         library.getBook();
-        library.getMagazine();
+        library.addBook("Sven", book);
+        library.addMagazine();
         context.close();
     }
 }
