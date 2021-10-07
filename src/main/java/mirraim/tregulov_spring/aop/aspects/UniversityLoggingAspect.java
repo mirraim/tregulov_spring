@@ -1,10 +1,8 @@
 package mirraim.tregulov_spring.aop.aspects;
 
 import mirraim.tregulov_spring.aop.Student;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -51,5 +49,18 @@ public class UniversityLoggingAspect {
     public void afterThrowingGetStudentsLoggingAdvice(Throwable ex) {
         System.out.println("afterThrowingGetStudentsLoggingAdvice: " +
                 "логгируем исключение во время работы метода getStudents" + ex);
+    }
+
+    /**
+     * Выполняется после окончания метода с основной логикой
+     * вне зависимости от того, завершается ли метод нормально
+     * или было выброшено исключение
+     * Также можно использовать Join Point в качестве параметра
+     * К исключению или возвращаемому значению доступ получить нельзя
+     */
+    @After("execution(* getStudents())")
+    public void afterGetStudentsLoggingAdvice() {
+        System.out.println("afterGetStudentsLoggingAdvice: " +
+                "логгируем завершение работы метода getStudents");
     }
 }
