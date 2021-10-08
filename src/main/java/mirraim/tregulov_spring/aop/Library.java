@@ -10,9 +10,9 @@ public class Library {
         System.out.println("--------------------------------------");
     }
 
-    public void returnBook() {
+    public String returnBook() {
         System.out.println("Возвращаем книгу");
-        System.out.println("--------------------------------------");
+        return "bookName";
     }
 
     public void getMagazine() {
