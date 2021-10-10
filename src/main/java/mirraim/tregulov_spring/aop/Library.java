@@ -11,6 +11,7 @@ public class Library {
     }
 
     public String returnBook() {
+        int a = 10 / 0;
         System.out.println("Возвращаем книгу");
         return "bookName";
     }

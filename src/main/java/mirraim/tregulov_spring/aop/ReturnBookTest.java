@@ -10,7 +10,7 @@ public class ReturnBookTest {
         );
         Library library = context.getBean("libBean", Library.class);
         String bookName = library.returnBook();
-        System.out.println("В библиотеку вернули книгу" + bookName);
+        System.out.println("В библиотеку вернули книгу " + bookName);
         context.close();
         System.out.println("Method main ends");
     }

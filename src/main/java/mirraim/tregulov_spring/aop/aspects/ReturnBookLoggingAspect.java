@@ -22,12 +22,15 @@ public class ReturnBookLoggingAspect {
     @Around("execution(public String returnBook())")
     public Object aroundReturnBookAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("aroundReturnBookAdvice: логгирование попытки возврата книги в библиотеку");
-        long begin = System.currentTimeMillis();
-        Object targetMethodRsl = proceedingJoinPoint.proceed();
-        long end = System.currentTimeMillis();
+        Object targetMethodRsl = null;
+        try {
+            targetMethodRsl = proceedingJoinPoint.proceed();
+        } catch (Exception e) {
+            System.out.println( "aroundReturnBookAdvice: " + e);
+            throw e;
+        }
         System.out.println("aroundReturnBookAdvice: логгирование возврата книги в библиотеку");
-        System.out.println("aroundReturnBookAdvice: метод returnBook " +
-                "выполнил работу за " + (end - begin) + " миллисекунд");
+
         return targetMethodRsl;
     }
 }
