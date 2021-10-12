@@ -39,7 +39,9 @@ public class SessionTest {
 //           System.out.println(store.getById(id));
 //            List<Employee> employees = store.getByName("Mike");
 //            employees.forEach(System.out::println);
-            store.setSalaries("Mike", 750);
+//            store.setSalaries("Mike", 750);
+//            store.delete(1);
+            store.deleteByName("Mike");
         } finally {
             store.close(); // SessionFactory всегда должна быть закрыта
         }
@@ -120,6 +122,23 @@ public class SessionTest {
         // здесь пишется имя класса, а не имя таблицы
         session.createQuery(
                 "update Employee set salary = " + salary +" where name='" + empName + "'"
+        ).executeUpdate();
+        session.getTransaction().commit();
+    }
+
+    public void delete(int id) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        Employee employee = session.get(Employee.class, id);
+        session.delete(employee);
+        session.getTransaction().commit();
+    }
+
+    public void deleteByName(String empName) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        session.createQuery(
+                "delete Employee where name='" + empName + "'"
         ).executeUpdate();
         session.getTransaction().commit();
     }
