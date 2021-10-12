@@ -37,8 +37,9 @@ public class SessionTest {
 //           store.save(employee);
 //           int id = employee.getId();
 //           System.out.println(store.getById(id));
-            List<Employee> employees = store.getByName("Mike");
-            employees.forEach(System.out::println);
+//            List<Employee> employees = store.getByName("Mike");
+//            employees.forEach(System.out::println);
+            store.setSalaries("Mike", 750);
         } finally {
             store.close(); // SessionFactory всегда должна быть закрыта
         }
@@ -99,10 +100,28 @@ public class SessionTest {
         session.beginTransaction();
         // .createQuery может содержать любой запрос на HQL
         List<Employee> employees = session.createQuery(
-                "from Employee where name='" + empName + "'"
+                "from Employee where name='" + empName + "'", Employee.class
                 ).getResultList();
         session.getTransaction().commit();
         return employees;
+    }
+
+    public void setSalary(int id, int salary) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        Employee employee = session.get(Employee.class, id);
+        employee.setSalary(salary);
+        session.getTransaction().commit();
+    }
+
+    public void setSalaries(String empName, int salary) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        // здесь пишется имя класса, а не имя таблицы
+        session.createQuery(
+                "update Employee set salary = " + salary +" where name='" + empName + "'"
+        ).executeUpdate();
+        session.getTransaction().commit();
     }
 
     /**
