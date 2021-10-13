@@ -20,6 +20,13 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
+    // параметр mappedBy показывает, в каком месте связанного класса
+    // нужно искать связь между столбцами таблицы. Значение параметра должно соответствовать
+    // названию поля, в котором прописана эта связь
+    @OneToOne(mappedBy = "empDetail",
+            cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private Employee employee;
+
     public Detail() {
     }
 
@@ -59,6 +66,14 @@ public class Detail {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
