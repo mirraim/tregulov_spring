@@ -1,6 +1,6 @@
-package mirraim.tregulov_spring.hiber_source;
+package mirraim.tregulov_spring.hiber;
 
-import mirraim.tregulov_spring.hiber_source.entity.Employee;
+import mirraim.tregulov_spring.hiber.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

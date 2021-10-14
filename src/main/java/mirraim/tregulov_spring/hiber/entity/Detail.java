@@ -1,4 +1,4 @@
-package mirraim.tregulov_spring.hiber_source.entity;
+package mirraim.tregulov_spring.hiber.entity;
 
 import javax.persistence.*;
 
