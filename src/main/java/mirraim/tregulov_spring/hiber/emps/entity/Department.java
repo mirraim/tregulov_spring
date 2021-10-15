@@ -1,4 +1,4 @@
-package mirraim.tregulov_spring.hiber.entity;
+package mirraim.tregulov_spring.hiber.emps.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;

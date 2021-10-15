@@ -1,7 +1,7 @@
-package mirraim.tregulov_spring.hiber.one_to_many_uni;
+package mirraim.tregulov_spring.hiber.emps.one_to_many_uni;
 
-import mirraim.tregulov_spring.hiber.one_to_many_uni.entity.Department;
-import mirraim.tregulov_spring.hiber.one_to_many_uni.entity.Employee;
+import mirraim.tregulov_spring.hiber.emps.one_to_many_uni.entity.Department;
+import mirraim.tregulov_spring.hiber.emps.one_to_many_uni.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

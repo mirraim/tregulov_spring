@@ -1,4 +1,4 @@
-package mirraim.tregulov_spring.hiber.one_to_many_uni.entity;
+package mirraim.tregulov_spring.hiber.emps.one_to_many_uni.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
